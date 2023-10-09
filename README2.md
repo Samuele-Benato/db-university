@@ -26,3 +26,15 @@
 - SELECT degree_id, COUNT(\*) AS numero_corsi_di_laurea
   FROM `courses`
   GROUP BY degree_id;
+
+## Query con GROUP JOIN.
+
+### 1. Selezionare tutti gli studenti iscritti al Corso di Laurea in Economia
+
+- SELECT `students`.\*
+  FROM `students`
+  INNER JOIN `degrees`
+  ON `students`.degree_id = `degrees`.id
+  INNER JOIN `courses`
+  ON `degrees`.id = `courses`.degree_id
+  WHERE `degrees`.name = 'Corso di Laurea in Economia';
