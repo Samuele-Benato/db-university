@@ -20,3 +20,9 @@
   - SELECT exam_id, ROUND(AVG(vote)) AS media_voti
     FROM `exam_student`
     GROUP BY exam_id;
+
+### 4. Contare quanti corsi di laurea ci sono per ogni dipartimento
+
+- SELECT degree_id, COUNT(\*) AS numero_corsi_di_laurea
+  FROM `courses`
+  GROUP BY degree_id;
