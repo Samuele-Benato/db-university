@@ -10,7 +10,13 @@
 
 ### 2. Contare gli insegnanti che hanno l'ufficio nello stesso edificio
 
-- SELECT office_address, COUNT(_) AS insegnanti_nello_stesso_edificio
+- SELECT office_address, COUNT(\*) AS insegnanti_nello_stesso_edificio
   FROM `teachers`
   GROUP BY office_address
-  HAVING COUNT(_) > 1;
+  HAVING COUNT(\*) > 1;
+
+  ### 3. Calcolare la media dei voti di ogni appello d'esame
+
+  - SELECT exam_id, ROUND(AVG(vote)) AS media_voti
+    FROM `exam_student`
+    GROUP BY exam_id;
