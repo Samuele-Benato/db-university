@@ -68,3 +68,16 @@
   INNER JOIN departments
   ON degrees.department_id = departments.id
   ORDER BY students.surname, students.name;
+
+### 5. Selezionare tutti i corsi di laurea con i relativi corsi e insegnanti
+
+- SELECT degrees.name AS corso_di_laurea,courses.name AS corso,
+  GROUP_CONCAT(teachers.name, ' ', teachers.surname) AS insegnanti
+  FROM degrees
+  INNER JOIN courses
+  ON degrees.id = courses.degree_id
+  INNER JOIN course_teacher
+  ON courses.id = course_teacher.course_id
+  INNER JOIN teachers
+  ON course_teacher.teacher_id = teachers.id
+  GROUP BY degrees.name, courses.name;
